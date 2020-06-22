@@ -1,3 +1,5 @@
+package SeleniumReportGeneration;
+
 import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +28,7 @@ public static WebDriver driver;
 
 @BeforeTest
 public static void launchBrowser() throws InterruptedException {
-System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+System.setProperty("webdriver.chrome.driver", "C://Users/yashass/Downloads/chromedriver_win32 (1)/chromedriver.exe");
 ChromeOptions chromeOptions = new ChromeOptions();
 chromeOptions.addArguments("--headless");
 chromeOptions.addArguments("--no-sandbox");
@@ -93,15 +95,7 @@ private static void testCaseThree() throws InterruptedException {
         js.executeScript("document.getElementById('city').value='London'");
         driver.findElement(By.xpath("//button[contains(text(),'Update Owner')]")).click();
         WebElement city = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]"));
-//                                      String outputValue1 = city.getText();
-//                                      if (outputValue1.contentEquals("London")) {
-//                                              System.out.println("Test Passed!");
-//                                              pass++;
-//                                      } else {
-//                                              System.out.println("Test Failed");
-//                                              errorCode = 2;
-//                                              fail++;
-//                                      }
+
         String expectedValue = city.getText();
         //String actualValue = "new york";
         String actualValue = "London";
